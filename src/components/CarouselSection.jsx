@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import cardImg from '../assets/card_image.png';
 import browserLogos from '../assets/browser_logos.png';
 
 const CarouselSection = () => {
     const [activeIndex, setActiveIndex] = useState(0);
+    const theme = useTheme();
+    
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const isTablet = useMediaQuery(theme.breakpoints.down('md'));
 
     const cards = [
         { id: 1, img: cardImg },
@@ -17,69 +21,80 @@ const CarouselSection = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setActiveIndex((prevIndex) => (prevIndex + 1) % cards.length);
-        }, 3000);
-
+        }, 2000); // ⚡ Faster rotation (from 3000 to 2000)
         return () => clearInterval(interval);
     }, [cards.length]);
+
+    const getCardWidth = () => {
+        if (isMobile) return window.innerWidth * 0.75;
+        if (isTablet) return 350;
+        return 500;
+    };
+
+    const getGap = () => {
+        if (isMobile) return 15;
+        if (isTablet) return 25;
+        return 40;
+    };
+
+    const CARD_WIDTH = getCardWidth();
+    const GAP = getGap();
+    const CENTER_SCALE = isMobile ? 1.1 : 1.2;
+    const SIDE_SCALE = isMobile ? 0.7 : 0.9;
 
     return (
         <Box
             sx={{
-                pt: 10,
-                pb: 0, // 🔥 CRITICAL: no bottom padding
-                backgroundColor: '#ffffffff', // 🔥 matches gradient end
+                pt: { xs: 6, md: 10 },
+                pb: 0,
+                backgroundColor: '#fff',
                 overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                minHeight: '600px',
+                minHeight: { xs: '450px', md: '600px' },
+                width: '100%',
             }}
         >
             {/* Heading */}
-            <Box sx={{ textAlign: 'center', mb: 8 }}>
+            <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 8 }, maxWidth: '1100px', width: '90%', mx: 'auto' }}>
                 <Typography
                     variant="h2"
                     sx={{
                         fontFamily: "'Poppins', sans-serif",
-                        fontSize: { xs: '32px', md: '48px' },
-                        fontWeight: 600,
+                        fontSize: { xs: '24px', sm: '32px', md: '44px', lg: '52px' },
+                        fontWeight: 700,
                         color: '#000',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        gap: 1,
+                        gap: 1.5,
+                        lineHeight: 1.2,
                     }}
                 >
                     Available on{' '}
                     <Box
                         component="span"
                         sx={{
-                            backgroundColor: '#257C42',
+                            backgroundColor: '#4a6b54',
                             color: '#fff',
-                            px: 3,
+                            px: { xs: 2, md: 3 },
                             py: 0.5,
                             borderRadius: '100px',
-                            fontWeight: 600,
+                            fontWeight: 700,
                         }}
                     >
                         Web
                     </Box>
                 </Typography>
 
-                <Box
-                    sx={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        gap: 2,
-                        mt: 2,
-                    }}
-                >
+                <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
                     <Box
                         component="img"
                         src={browserLogos}
                         alt="Browser Support"
                         sx={{
-                            height: '50px',
+                            height: { xs: '35px', md: '50px' },
                             width: 'auto',
                             objectFit: 'contain'
                         }}
@@ -92,29 +107,23 @@ const CarouselSection = () => {
                 sx={{
                     position: 'relative',
                     width: '100%',
-                    height: '400px',
+                    height: { xs: '300px', md: '450px' },
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    perspective: '1000px',
+                    perspective: '1200px',
                 }}
             >
-                {/* Cards — LOGIC UNTOUCHED */}
                 {cards.map((card, index) => {
                     let offset = index - activeIndex;
                     if (offset > cards.length / 2) offset -= cards.length;
                     if (offset < -cards.length / 2) offset += cards.length;
 
-                    const CARD_WIDTH = 500;
-                    const GAP = 40;
-                    const CENTER_SCALE = 1.2;
-                    const SIDE_SCALE = 0.9;
-
                     let scale = SIDE_SCALE;
                     let opacity = 1;
                     let zIndex = 5;
                     let x = 0;
-                    let transition = 'all 0.5s ease-in-out';
+                    let transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
 
                     if (offset === 0) {
                         scale = CENTER_SCALE;
@@ -134,7 +143,12 @@ const CarouselSection = () => {
                         x = Math.sign(offset) * totalDist;
                         zIndex = 5 - absOffset;
 
-                        if (absOffset > 2) opacity = 0;
+                        if (isMobile) {
+                            if (absOffset > 1) opacity = 0;
+                        } else {
+                            if (absOffset > 2) opacity = 0;
+                        }
+                        
                         if (offset === 2) transition = 'none';
                     }
 
@@ -148,8 +162,10 @@ const CarouselSection = () => {
                                 zIndex,
                                 opacity,
                                 transform: `translateX(${x}px) scale(${scale})`,
-                                borderRadius: '12px',
+                                borderRadius: { xs: '8px', md: '12px' },
                                 overflow: 'hidden',
+                                // 🚫 Shadow/Box removed as requested
+                                boxShadow: 'none', 
                             }}
                         >
                             <Box
@@ -159,19 +175,23 @@ const CarouselSection = () => {
                                 sx={{
                                     width: '100%',
                                     display: 'block',
+                                    // Removed any implicit border/outline
+                                    border: 'none',
+                                    outline: 'none',
                                 }}
                             />
                         </Box>
                     );
                 })}
 
-                {/* 🌿 Gradient Overlay — blends INTO next section */}
+                {/* Gradient Overlay */}
                 <Box
                     sx={{
                         position: 'absolute',
                         inset: 0,
+                        bottom: -2,
                         background:
-                            'linear-gradient(180deg, rgba(255, 255, 255, 0) 5%, rgba(82, 131, 98, 1) 100%)',
+                            'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 60%, rgba(82, 131, 98, 1) 100%)',
                         zIndex: 20,
                         pointerEvents: 'none',
                     }}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Grid, Container } from '@mui/material';
+import { Box, Typography, Container } from '@mui/material';
 
 const ComparisonSection = () => {
     const features = [
@@ -34,79 +34,99 @@ const ComparisonSection = () => {
     ];
 
     return (
-        <Box sx={{ py: 3, backgroundColor: '#ffffff' }}>
-            <Container maxWidth="xl">
-                <Typography
-                    align="center"
-                    sx={{
-                        fontWeight: 700,
-                        mb: 1.5,
-                        fontFamily: "'Poppins', sans-serif",
-                        fontSize: { xs: '28px', md: '40px' },
-                        color: '#1a1a1a',
-                    }}
-                >
-                    The old way Vs. The <span style={{ color: '#528362' }}>WrapTax</span> Way
-                </Typography>
-                <Typography
-                    align="center"
-                    sx={{
-                        color: '#999',
-                        maxWidth: '800px',
-                        mx: 'auto',
-                        mb: 6,
-                        fontFamily: "'Poppins', sans-serif",
-                        fontSize: '18px',
-                        lineHeight: 1.4,
-                    }}
-                >
-                    Contrast the typical complexity of tax filing with the streamlined, supportive process offered by WrapTax.
-                </Typography>
+        <Box sx={{ py: { xs: 6, md: 10 }, backgroundColor: '#ffffff' }}>
+            <Container maxWidth="lg">
+                {/* Header Section */}
+                <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 8 } }}>
+                    <Typography
+                        sx={{
+                            fontWeight: 700,
+                            fontFamily: "'Poppins', sans-serif",
+                            fontSize: { xs: '28px', sm: '36px', md: '52px' },
+                            color: '#1a1a1a',
+                            lineHeight: 1.2,
+                            mb: 2
+                        }}
+                    >
+                        The old way Vs. The <Box component="span" sx={{ color: '#4a6b54' }}>WrapTax</Box> Way
+                    </Typography>
+                    <Typography
+                        sx={{
+                            color: '#999',
+                            maxWidth: '800px',
+                            mx: 'auto',
+                            fontFamily: "'Poppins', sans-serif",
+                            fontSize: { xs: '14px', md: '18px' },
+                            lineHeight: 1.4,
+                        }}
+                    >
+                        Contrast the typical complexity of tax filing with the streamlined, supportive process offered by WrapTax.
+                    </Typography>
+                </Box>
 
-                <Grid container spacing={1.5} justifyContent="center" wrap="nowrap">
+                {/* Cards Container - Responsive Scroll */}
+                <Box
+                    sx={{
+                        display: 'flex',
+                        gap: { xs: 2, md: 3 },
+                        overflowX: { xs: 'auto', md: 'visible' }, // Scroll on mobile, static on desktop
+                        pb: { xs: 4, md: 0 },
+                        px: { xs: 2, md: 0 },
+                        // Hide scrollbar but keep functionality
+                        scrollbarWidth: 'none', 
+                        '&::-webkit-scrollbar': { display: 'none' },
+                        justifyContent: { md: 'center' }
+                    }}
+                >
                     {features.map((feature, index) => (
-                        <Grid item xs={4} key={index}>
-                            <Box
+                        <Box
+                            key={index}
+                            sx={{
+                                // Card Dimensions
+                                flex: { xs: '0 0 280px', sm: '0 0 320px', md: '1 1 350px' },
+                                maxWidth: { md: '400px' },
+                                p: { xs: 3, md: 4 },
+                                borderRadius: '12px',
+                                border: '1px solid #BDBDBD',
+                                textAlign: 'center',
+                                backgroundColor: '#fff',
+                                transition: 'all 0.3s ease',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                '&:hover': {
+                                    borderColor: '#4a6b54',
+                                    boxShadow: '0 8px 24px rgba(74, 107, 84, 0.1)',
+                                },
+                            }}
+                        >
+                            <Box sx={{ mb: 3, display: 'flex', justifyContent: 'center' }}>
+                                {feature.icon}
+                            </Box>
+                            <Typography
                                 sx={{
-                                    p: { xs: 1.5, md: 3 },
-                                    height: '100%',
-                                    borderRadius: '12px',
-                                    border: '1px solid #BDBDBD',
-                                    textAlign: 'center',
-                                    transition: 'border-color 0.2s ease',
-                                    '&:hover': {
-                                        borderColor: '#528362',
-                                    },
+                                    fontWeight: 700,
+                                    mb: 1.5,
+                                    color: '#4a6b54',
+                                    fontFamily: "'Poppins', sans-serif",
+                                    fontSize: { xs: '18px', md: '20px' },
                                 }}
                             >
-                                <Box sx={{ mb: 2.5, display: 'flex', justifyContent: 'center' }}>
-                                    {feature.icon}
-                                </Box>
-                                <Typography
-                                    sx={{
-                                        fontWeight: 600,
-                                        mb: 1,
-                                        color: '#528362',
-                                        fontFamily: "'Poppins', sans-serif",
-                                        fontSize: { xs: '12px', md: '17px' },
-                                    }}
-                                >
-                                    {feature.title}
-                                </Typography>
-                                <Typography
-                                    sx={{
-                                        color: '#888',
-                                        lineHeight: 1.4,
-                                        fontFamily: "'Poppins', sans-serif",
-                                        fontSize: { xs: '10px', md: '12.5px' },
-                                    }}
-                                >
-                                    {feature.description}
-                                </Typography>
-                            </Box>
-                        </Grid>
+                                {feature.title}
+                            </Typography>
+                            <Typography
+                                sx={{
+                                    color: '#888',
+                                    lineHeight: 1.6,
+                                    fontFamily: "'Poppins', sans-serif",
+                                    fontSize: { xs: '13px', md: '14.5px' },
+                                }}
+                            >
+                                {feature.description}
+                            </Typography>
+                        </Box>
                     ))}
-                </Grid>
+                </Box>
             </Container>
         </Box>
     );

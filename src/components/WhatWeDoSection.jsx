@@ -4,7 +4,13 @@ import phoneImg from '../assets/phone_mockup.png';
 
 const WhatWeDoSection = () => {
     return (
-        <Box sx={{ pb: 20, width: '85%', display: 'flex', justifyContent: 'flex-start', overflow: 'visible' }}>
+        <Box sx={{ 
+            pb: { xs: 5, md: 20 }, 
+            width: '100%', 
+            display: 'flex', 
+            justifyContent: 'flex-start', 
+            overflow: 'visible' 
+        }}>
             <Box
                 sx={{
                     background: 'linear-gradient(135deg, #528362 0%, #3d634a 100%)',
@@ -14,33 +20,36 @@ const WhatWeDoSection = () => {
                     borderBottomLeftRadius: '0px',
                     overflow: 'visible',
                     display: 'flex',
-                    flexDirection: { xs: 'column', md: 'row' },
                     alignItems: 'center',
                     position: 'relative',
-                    py: { xs: 8, md: 0 },
-                    width: { xs: 'calc(100% - 20px)', md: '85%' },
-                    minHeight: '520px',
+                    py: { xs: 6, md: 0 },
+                    width: { xs: '92%', md: '75%' }, 
+                    minHeight: { xs: 'auto', md: '480px' }, 
                     mt: 10,
                 }}
             >
                 {/* Left Content */}
                 <Box
                     sx={{
-                        flex: 1.2,
+                        flex: 1,
                         zIndex: 2,
                         textAlign: 'left',
-                        pl: { xs: 4, md: 15 },
-                        pr: { xs: 4, md: 8 },
-                        color: '#FFFFFF'
+                        // 🔥 Added a clear gap from the left edge on mobile
+                        pl: { xs: 4.5, sm: 6, md: 12 }, 
+                        // Right padding to ensure text doesn't hit the right curve
+                        pr: { xs: 3, md: 15 }, 
+                        color: '#FFFFFF',
+                        py: { xs: 4, md: 0 }
                     }}
                 >
                     <Typography
                         sx={{
                             fontWeight: 700,
                             fontFamily: "'Poppins', sans-serif",
-                            fontSize: { xs: '32px', md: '56px' },
-                            mb: 2,
-                            lineHeight: 1.2
+                            // 🔥 Increased heading size slightly
+                            fontSize: { xs: '30px', sm: '38px', md: '44px' },
+                            mb: 2.5,
+                            lineHeight: 1.1
                         }}
                     >
                         What we do??
@@ -48,11 +57,12 @@ const WhatWeDoSection = () => {
                     <Typography
                         sx={{
                             fontFamily: "'Poppins', sans-serif",
-                            fontSize: { xs: '14px', md: '16px' },
-                            maxWidth: '600px',
+                            // 🔥 Increased content size slightly
+                            fontSize: { xs: '15.5px', md: '16px' },
+                            maxWidth: '500px',
                             mb: 4,
                             lineHeight: 1.7,
-                            opacity: 0.9,
+                            opacity: 0.95, // Made text slightly more vivid
                         }}
                     >
                         Contrast the typical complexity of tax filing with the streamlined, supportive process offered by WrapTax. Contrast the typical complexity of tax filing with the streamlined, supportive process offered by WrapTax. Contrast the typical complexity of tax filing with streamlined, supportive process offered by WrapTax. Contrast the typical complexity of tax filing with the streamlined, supportive process offered by WrapTax.
@@ -64,30 +74,26 @@ const WhatWeDoSection = () => {
                             color: '#528362',
                             borderRadius: '100px',
                             px: 5,
-                            py: 1.5,
+                            py: 1.4,
                             fontWeight: 600,
                             textTransform: 'none',
                             fontFamily: "'Poppins', sans-serif",
                             fontSize: '15px',
-                            '&:hover': {
-                                backgroundColor: '#f0f0f0',
-                            },
+                            '&:hover': { backgroundColor: '#f0f0f0' },
                         }}
                     >
                         Read More
                     </Button>
                 </Box>
 
-                {/* Right Content (Image) - Positioned on the edge */}
+                {/* Right Content (Image) - Hidden on Mobile */}
                 <Box
                     sx={{
-                        flex: 0,
+                        display: { xs: 'none', md: 'flex' }, 
                         position: 'absolute',
-                        right: { md: '-180px', xs: 'auto' },
-                        bottom: { xs: '-50px', md: 'auto' },
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
+                        right: { md: '-130px', lg: '-140px' },
+                        top: '50%',
+                        transform: 'translateY(-50%)',
                         zIndex: 3,
                     }}
                 >
@@ -96,9 +102,9 @@ const WhatWeDoSection = () => {
                         src={phoneImg}
                         alt="Mobile App"
                         sx={{
-                            width: { xs: '250px', md: '420px' },
+                            width: { md: '380px' }, 
                             height: 'auto',
-                            filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.4))',
+                            filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.35))',
                         }}
                     />
                 </Box>
