@@ -1,4 +1,5 @@
 import React from 'react';
+import { Box } from '@mui/material';
 import HeroSection from './components/HeroSection';
 import CarouselSection from './components/CarouselSection';
 import MobileAppSection from './components/MobileAppSection';
@@ -8,14 +9,14 @@ import UserFlowSection from './components/UserFlowSection';
 
 function App() {
   return (
-    <div className="app">
+    <Box sx={{ width: '100%', overflowX: 'hidden', minHeight: '100vh' }}>
       <HeroSection />
       <CarouselSection />
       <MobileAppSection />
       <ComparisonSection />
       <WhatWeDoSection />
       <UserFlowSection />
-    </div>
+    </Box>
   );
 }
 

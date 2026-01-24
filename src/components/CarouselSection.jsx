@@ -6,7 +6,7 @@ import browserLogos from '../assets/browser_logos.png';
 const CarouselSection = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const theme = useTheme();
-    
+
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const isTablet = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -26,7 +26,7 @@ const CarouselSection = () => {
     }, [cards.length]);
 
     const getCardWidth = () => {
-        if (isMobile) return window.innerWidth * 0.75;
+        if (isMobile) return Math.min(window.innerWidth * 0.75, 280);
         if (isTablet) return 350;
         return 500;
     };
@@ -148,7 +148,7 @@ const CarouselSection = () => {
                         } else {
                             if (absOffset > 2) opacity = 0;
                         }
-                        
+
                         if (offset === 2) transition = 'none';
                     }
 
@@ -165,7 +165,7 @@ const CarouselSection = () => {
                                 borderRadius: { xs: '8px', md: '12px' },
                                 overflow: 'hidden',
                                 // 🚫 Shadow/Box removed as requested
-                                boxShadow: 'none', 
+                                boxShadow: 'none',
                             }}
                         >
                             <Box

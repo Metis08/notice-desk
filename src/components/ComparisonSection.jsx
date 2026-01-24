@@ -42,10 +42,11 @@ const ComparisonSection = () => {
                         sx={{
                             fontWeight: 700,
                             fontFamily: "'Poppins', sans-serif",
-                            fontSize: { xs: '28px', sm: '36px', md: '52px' },
+                            fontSize: { xs: '26px', sm: '36px', md: '52px' },
                             color: '#1a1a1a',
                             lineHeight: 1.2,
-                            mb: 2
+                            mb: 2,
+                            px: 2
                         }}
                     >
                         The old way Vs. The <Box component="span" sx={{ color: '#4a6b54' }}>WrapTax</Box> Way
@@ -57,37 +58,31 @@ const ComparisonSection = () => {
                             mx: 'auto',
                             fontFamily: "'Poppins', sans-serif",
                             fontSize: { xs: '14px', md: '18px' },
-                            lineHeight: 1.4,
+                            lineHeight: 1.5,
+                            px: 2
                         }}
                     >
                         Contrast the typical complexity of tax filing with the streamlined, supportive process offered by WrapTax.
                     </Typography>
                 </Box>
 
-                {/* Cards Container - Responsive Scroll */}
+                {/* Cards Grid - Responsive Grid */}
                 <Box
                     sx={{
-                        display: 'flex',
-                        gap: { xs: 2, md: 3 },
-                        overflowX: { xs: 'auto', md: 'visible' }, // Scroll on mobile, static on desktop
-                        pb: { xs: 4, md: 0 },
+                        display: 'grid',
+                        gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
+                        gap: { xs: 3, md: 4 },
                         px: { xs: 2, md: 0 },
-                        // Hide scrollbar but keep functionality
-                        scrollbarWidth: 'none', 
-                        '&::-webkit-scrollbar': { display: 'none' },
-                        justifyContent: { md: 'center' }
                     }}
                 >
                     {features.map((feature, index) => (
                         <Box
                             key={index}
                             sx={{
-                                // Card Dimensions
-                                flex: { xs: '0 0 280px', sm: '0 0 320px', md: '1 1 350px' },
-                                maxWidth: { md: '400px' },
+                                width: '100%',
                                 p: { xs: 3, md: 4 },
-                                borderRadius: '12px',
-                                border: '1px solid #BDBDBD',
+                                borderRadius: '16px',
+                                border: '1px solid #E0E0E0',
                                 textAlign: 'center',
                                 backgroundColor: '#fff',
                                 transition: 'all 0.3s ease',
@@ -96,7 +91,8 @@ const ComparisonSection = () => {
                                 alignItems: 'center',
                                 '&:hover': {
                                     borderColor: '#4a6b54',
-                                    boxShadow: '0 8px 24px rgba(74, 107, 84, 0.1)',
+                                    boxShadow: '0 10px 30px rgba(74, 107, 84, 0.1)',
+                                    transform: 'translateY(-5px)'
                                 },
                             }}
                         >
@@ -116,10 +112,10 @@ const ComparisonSection = () => {
                             </Typography>
                             <Typography
                                 sx={{
-                                    color: '#888',
+                                    color: '#777',
                                     lineHeight: 1.6,
                                     fontFamily: "'Poppins', sans-serif",
-                                    fontSize: { xs: '13px', md: '14.5px' },
+                                    fontSize: { xs: '13px', md: '15px' },
                                 }}
                             >
                                 {feature.description}
