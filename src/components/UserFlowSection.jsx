@@ -70,10 +70,12 @@ const UserFlowSection = () => {
                 <Box
                     sx={{
                         display: 'flex',
-                        flexWrap: 'wrap',
-                        justifyContent: 'center',
-                        gap: { xs: 2, md: 4 },
+                        flexWrap: { xs: 'wrap', md: 'nowrap' },
+                        justifyContent: { xs: 'center', md: 'space-between' },
+                        alignItems: 'center',
+                        gap: { xs: 2, md: 0 },
                         pb: { xs: 4, md: 0 },
+                        width: '100%',
                     }}
                 >
                     {steps.map((step, index) => (
@@ -113,9 +115,9 @@ const UserFlowSection = () => {
                                 </Typography>
                             </Paper>
 
-                            {/* Show arrow only on desktop, or adjust logic if needed for mobile grid flows */}
+                            {/* Desktop Arrow */}
                             {index < steps.length - 1 && (
-                                <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+                                <Box sx={{ display: { xs: 'none', md: 'flex' }, mx: 1 }}>
                                     <HandIcon />
                                 </Box>
                             )}
@@ -123,7 +125,7 @@ const UserFlowSection = () => {
                     ))}
                 </Box>
             </Container>
-        </Box>
+        </Box >
     );
 };
 
