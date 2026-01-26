@@ -18,7 +18,7 @@ const UserFlowSection = () => {
                 justifyContent: 'center',
                 transform: 'rotate(-10deg)',
                 opacity: 0.7,
-                flexShrink: 0, 
+                flexShrink: 0,
                 mx: { xs: 1.5, md: 0.5 }
             }}
         >
@@ -65,35 +65,17 @@ const UserFlowSection = () => {
                 </Box>
             </Box>
 
-            {/* 🔥 Scroll Container Wrapper */}
-            <Container 
-                maxWidth="lg" 
-                sx={{ 
-                    overflow: 'hidden', // Ensures no scrollbar leaked from the container
-                    px: { xs: 0, md: 2 } // Remove padding on mobile to let cards touch edges if needed
-                }}
-            >
-                <Box 
-                    sx={{ 
-                        display: 'flex', 
-                        flexDirection: 'row', 
-                        alignItems: 'center', 
-                        justifyContent: { xs: 'flex-start', md: 'space-between' },
-                        
-                        // 🔥 THE FIX: Strict scrollbar removal
-                        overflowX: 'auto',
-                        overflowY: 'hidden',
-                        WebkitOverflowScrolling: 'touch', // Smooth swipe for iOS
-                        '&::-webkit-scrollbar': {
-                            display: 'none',
-                            width: 0,
-                            height: 0,
-                        },
-                        msOverflowStyle: 'none', 
-                        scrollbarWidth: 'none', 
-                        
-                        pb: { xs: 4, md: 0 }, // Bottom padding to prevent shadows being cut off
-                        px: { xs: 3, md: 0 } 
+            {/* Cards Grid - Responsive Wrap */}
+            <Container maxWidth="lg" sx={{ px: { xs: 2, md: 2 } }}>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexWrap: { xs: 'wrap', md: 'nowrap' },
+                        justifyContent: { xs: 'center', md: 'space-between' },
+                        alignItems: 'center',
+                        gap: { xs: 2, md: 0 },
+                        pb: { xs: 4, md: 0 },
+                        width: '100%',
                     }}
                 >
                     {steps.map((step, index) => (
@@ -101,9 +83,8 @@ const UserFlowSection = () => {
                             <Paper
                                 elevation={0}
                                 sx={{
-                                    width: { xs: '125px', md: '160px' },
-                                    height: { xs: '125px', md: '160px' },
-                                    flexShrink: 0, 
+                                    width: { xs: '130px', sm: '150px', md: '160px' },
+                                    height: { xs: '130px', sm: '150px', md: '160px' },
                                     display: 'flex',
                                     flexDirection: 'column',
                                     alignItems: 'center',
@@ -116,17 +97,17 @@ const UserFlowSection = () => {
                                     }
                                 }}
                             >
-                                <Box 
+                                <Box
                                     component="img"
                                     src={step.icon}
-                                    sx={{ width: 34, height: 34, mb: 1.5, objectFit: 'contain' }}
+                                    sx={{ width: { xs: 28, md: 34 }, height: { xs: 28, md: 34 }, mb: 1.5, objectFit: 'contain' }}
                                 />
                                 <Typography
                                     sx={{
                                         color: '#17426C ',
                                         fontWeight: 700,
                                         fontFamily: "'Poppins', sans-serif",
-                                        fontSize: { xs: '11px', md: '13px' },
+                                        fontSize: { xs: '12px', md: '13px' },
                                         letterSpacing: '0.5px'
                                     }}
                                 >
@@ -134,12 +115,17 @@ const UserFlowSection = () => {
                                 </Typography>
                             </Paper>
 
-                            {index < steps.length - 1 && <HandIcon />}
+                            {/* Desktop Arrow */}
+                            {index < steps.length - 1 && (
+                                <Box sx={{ display: { xs: 'none', md: 'flex' }, mx: 1 }}>
+                                    <HandIcon />
+                                </Box>
+                            )}
                         </React.Fragment>
                     ))}
                 </Box>
             </Container>
-        </Box>
+        </Box >
     );
 };
 

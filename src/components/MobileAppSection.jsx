@@ -18,7 +18,7 @@ const slideUp = keyframes`
 const MobileAppSection = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-    
+
     // Intersection Observer Logic
     const [isVisible, setIsVisible] = useState(false);
     const sectionRef = useRef(null);
@@ -41,8 +41,8 @@ const MobileAppSection = () => {
     }, []);
 
     return (
-        <Box 
-            ref={sectionRef} 
+        <Box
+            ref={sectionRef}
             sx={{ width: '100%', overflow: 'hidden', backgroundColor: '#fff' }}
         >
             {/* GREEN SECTION */}
@@ -101,7 +101,7 @@ const MobileAppSection = () => {
                         bottom: -1,
                         left: 0,
                         width: '100%',
-                        height: { xs: '100px', sm: '140px', md: '180px' },
+                        height: { xs: '60px', sm: '100px', md: '180px' },
                         overflow: 'hidden',
                         zIndex: 1,
                     }}
@@ -120,9 +120,9 @@ const MobileAppSection = () => {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'flex-end',
-                    gap: { xs: -2, sm: 2, md: 5 },
-                    mt: { xs: -14, sm: -18, md: -24 },
-                    mb: { xs: 8, md: 14 },
+                    gap: { xs: 0, sm: 2, md: 5 },
+                    mt: { xs: -10, sm: -14, md: -24 },
+                    mb: { xs: 6, md: 14 },
                     px: 2,
                 }}
             >
@@ -150,6 +150,7 @@ const MobileAppSection = () => {
                         zIndex: 3,
                         opacity: isVisible ? 1 : 0,
                         animation: isVisible ? `${slideUp} 0.8s ease-out forwards` : 'none',
+                        mb: { xs: -6, md: 0 } // Pull up slightly on mobile if needed, but safe
                     }}
                 />
 

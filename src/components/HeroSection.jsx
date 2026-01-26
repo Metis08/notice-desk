@@ -21,13 +21,13 @@ const HeroSection = () => {
     return (
         <Box
             sx={{
-                width: '100vw',
-                height: '100vh',
+                width: '100%',
+                minHeight: '100vh',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 backgroundColor: '#fff',
-                p: { xs: 1, md: 3 },
+                p: { xs: 2, sm: 3, md: 3 },
                 fontFamily: "'Poppins', sans-serif",
                 boxSizing: 'border-box',
             }}
@@ -35,28 +35,27 @@ const HeroSection = () => {
             <Box
                 sx={{
                     width: '100%',
-                    height: '100%',
+                    minHeight: { xs: '85vh', md: '95vh' },
                     backgroundColor: '#fff',
                     borderRadius: { xs: '24px', md: '44px' },
                     border: '1px solid #D1D1D1',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    justifyContent: 'space-around', 
-                    pt: { xs: 5, md: 8 }, 
+                    justifyContent: 'space-between',
+                    pt: { xs: 8, md: 8 },
                     position: 'relative',
-                    overflow: 'hidden', 
+                    overflow: 'hidden',
                 }}
             >
                 <Box sx={{ textAlign: 'center', maxWidth: '1250px', px: 2, zIndex: 10 }}>
                     <Typography
                         variant="h1"
                         sx={{
-                            fontSize: { xs: '1.6rem', sm: '2.2rem', md: '3.4rem', lg: '4rem' },
+                            fontSize: { xs: '1.8rem', sm: '2.5rem', md: '3.4rem', lg: '4rem' },
                             fontWeight: 600,
                             color: '#000',
-                            lineHeight: 1.4, 
-                            whiteSpace: { md: 'nowrap' }, 
+                            lineHeight: 1.3,
                             mb: { xs: 2, md: 3 }
                         }}
                     >
@@ -75,9 +74,7 @@ const HeroSection = () => {
                                 borderRadius: '100px',
                                 display: 'inline-flex',
                                 verticalAlign: 'middle',
-                                // 🔥 THE SECRET: overflow: hidden creates the 'mask' 
-                                // so the word looks like it pops out of nowhere
-                                overflow: 'hidden', 
+                                overflow: 'hidden',
                                 position: 'relative'
                             }}
                         >
@@ -95,7 +92,7 @@ const HeroSection = () => {
                         </Box>
                     </Typography>
 
-                    <Typography sx={{ fontSize: { xs: '0.9rem', md: '1.25rem' }, color: '#555', maxWidth: '900px', mx: 'auto', lineHeight: 1.5, mt: 2 }}>
+                    <Typography sx={{ fontSize: { xs: '1rem', md: '1.25rem' }, color: '#555', maxWidth: '900px', mx: 'auto', lineHeight: 1.5, mt: 2, px: 1 }}>
                         We are India's First Platform to use Blockchain Technology for Audit/
                         <br style={{ display: { xs: 'none', md: 'block' } }} />
                         Balance Confirmations.
