@@ -32,10 +32,10 @@ const UserFlowSection = () => {
     );
 
     return (
-        <Box sx={{ 
-            width: '100%', 
-            backgroundColor: '#17426C', 
-            pb: { xs: 4, md: 8 }, 
+        <Box sx={{
+            width: '100%',
+            backgroundColor: '#17426C',
+            pb: { xs: 4, md: 8 },
             position: 'relative',
             overflow: 'hidden' // Prevents whole-page horizontal scroll
         }}>
@@ -70,12 +70,18 @@ const UserFlowSection = () => {
                 <Box
                     sx={{
                         display: 'flex',
-                        flexWrap: { xs: 'wrap', md: 'nowrap' },
-                        justifyContent: { xs: 'center', md: 'space-between' },
+                        flexWrap: 'nowrap',
+                        justifyContent: { xs: 'flex-start', md: 'space-between' },
                         alignItems: 'center',
                         gap: { xs: 2, md: 0 },
                         pb: { xs: 4, md: 0 },
                         width: '100%',
+                        overflowX: { xs: 'auto', md: 'visible' },
+                        py: { xs: 1, md: 0 },
+                        px: { xs: 2, md: 0 },
+                        '&::-webkit-scrollbar': { display: 'none' },
+                        msOverflowStyle: 'none',
+                        scrollbarWidth: 'none',
                     }}
                 >
                     {steps.map((step, index) => (
