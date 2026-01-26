@@ -66,22 +66,15 @@ const UserFlowSection = () => {
             </Box>
 
             {/* Cards Grid - Responsive Wrap */}
-            <Container maxWidth="lg" sx={{ px: { xs: 2, md: 2 } }}>
+            <Container maxWidth="lg" sx={{ px: { xs: 1, md: 2 } }}>
                 <Box
                     sx={{
                         display: 'flex',
                         flexWrap: 'nowrap',
-                        justifyContent: { xs: 'flex-start', md: 'space-between' },
+                        justifyContent: 'space-between',
                         alignItems: 'center',
-                        gap: { xs: 2, md: 0 },
                         pb: { xs: 4, md: 0 },
                         width: '100%',
-                        overflowX: { xs: 'auto', md: 'visible' },
-                        py: { xs: 1, md: 0 },
-                        px: { xs: 2, md: 0 },
-                        '&::-webkit-scrollbar': { display: 'none' },
-                        msOverflowStyle: 'none',
-                        scrollbarWidth: 'none',
                     }}
                 >
                     {steps.map((step, index) => (
@@ -89,14 +82,14 @@ const UserFlowSection = () => {
                             <Paper
                                 elevation={0}
                                 sx={{
-                                    width: { xs: '130px', sm: '150px', md: '160px' },
-                                    height: { xs: '130px', sm: '150px', md: '160px' },
+                                    width: { xs: '58px', sm: '100px', md: '160px' },
+                                    height: { xs: '58px', sm: '100px', md: '160px' },
                                     flexShrink: 0,
                                     display: 'flex',
                                     flexDirection: 'column',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    borderRadius: '20px',
+                                    borderRadius: { xs: '12px', md: '20px' },
                                     backgroundColor: '#FFFFFF',
                                     transition: 'transform 0.2s ease',
                                     '&:hover': {
@@ -107,15 +100,21 @@ const UserFlowSection = () => {
                                 <Box
                                     component="img"
                                     src={step.icon}
-                                    sx={{ width: { xs: 28, md: 34 }, height: { xs: 28, md: 34 }, mb: 1.5, objectFit: 'contain' }}
+                                    sx={{
+                                        width: { xs: 16, sm: 24, md: 34 },
+                                        height: { xs: 16, sm: 24, md: 34 },
+                                        mb: { xs: 0.5, md: 1.5 },
+                                        objectFit: 'contain'
+                                    }}
                                 />
                                 <Typography
                                     sx={{
                                         color: '#17426C ',
                                         fontWeight: 700,
                                         fontFamily: "'Poppins', sans-serif",
-                                        fontSize: { xs: '12px', md: '13px' },
-                                        letterSpacing: '0.5px'
+                                        fontSize: { xs: '8px', sm: '11px', md: '13px' },
+                                        letterSpacing: '0.2px',
+                                        textAlign: 'center'
                                     }}
                                 >
                                     {step.label}
