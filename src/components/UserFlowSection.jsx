@@ -91,6 +91,7 @@ const UserFlowSection = () => {
                                 sx={{
                                     width: { xs: '130px', sm: '150px', md: '160px' },
                                     height: { xs: '130px', sm: '150px', md: '160px' },
+                                    flexShrink: 0,
                                     display: 'flex',
                                     flexDirection: 'column',
                                     alignItems: 'center',
