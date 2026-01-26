@@ -61,15 +61,15 @@ const HeroSection = () => {
                         }}
                     >
                         Technology based{' '}
-                        <Box component="span" sx={{ color: '#4a6b54', fontWeight: 700 }}>compliance</Box>{' '}
+                        <Box component="span" sx={{ color: '#17426C', fontWeight: 700 }}>compliance</Box>{' '}
                         solutions
                         <br />
                         for{' '}
                         <Box
                             component="span"
                             sx={{
-                                backgroundColor: '#4a6b54',
-                                color: '#fff',
+                                backgroundColor: '#AFD450',
+                                color: '#17426C',
                                 px: { xs: 2.5, md: 4.5 },
                                 py: 0.5,
                                 borderRadius: '100px',
@@ -105,7 +105,7 @@ const HeroSection = () => {
                 {/* Monitor Section */}
                 <Box sx={{ width: '100%', flex: 1, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', position: 'relative', pb: { xs: 3, md: 4, lg: 5 }, minHeight: 0 }}>
                     <Box component="img" src={dashboardImg} alt="Dashboard Monitor" sx={{ width: 'auto', maxWidth: { xs: '98%', md: '95%', lg: '1350px' }, height: 'auto', maxHeight: { xs: '50vh', md: '60vh', lg: '65vh' }, objectFit: 'contain', zIndex: 1, display: 'block', transform: { md: 'scale(1.1)', lg: 'scale(1.15)' }, transformOrigin: 'bottom center' }} />
-                    <Box sx={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '100%', background: 'linear-gradient(180deg, rgba(255,255,255,0) 40%, rgba(32, 90, 54, 0.95) 100%)', zIndex: 5, pointerEvents: 'none' }} />
+                    <Box sx={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '100%', background: 'linear-gradient(180deg, rgba(255,255,255,0) 40%, rgba(23, 66, 108, 1) 100%)', zIndex: 5, pointerEvents: 'none' }} />
                 </Box>
             </Box>
         </Box>

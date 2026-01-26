@@ -48,7 +48,7 @@ const ComparisonSection = () => {
                             mb: 2
                         }}
                     >
-                        The old way Vs. The <Box component="span" sx={{ color: '#4a6b54' }}>WrapTax</Box> Way
+                        The old way Vs. The <Box component="span" sx={{ color: '#17426C' }}>WrapTax</Box> Way
                     </Typography>
                     <Typography
                         sx={{
@@ -89,13 +89,13 @@ const ComparisonSection = () => {
                                 borderRadius: '12px',
                                 border: '1px solid #BDBDBD',
                                 textAlign: 'center',
-                                backgroundColor: '#fff',
+                                backgroundColor: '#AFD450',
                                 transition: 'all 0.3s ease',
                                 display: 'flex',
                                 flexDirection: 'column',
                                 alignItems: 'center',
                                 '&:hover': {
-                                    borderColor: '#4a6b54',
+                                    borderColor: '#17426C',
                                     boxShadow: '0 8px 24px rgba(74, 107, 84, 0.1)',
                                 },
                             }}
@@ -107,7 +107,7 @@ const ComparisonSection = () => {
                                 sx={{
                                     fontWeight: 700,
                                     mb: 1.5,
-                                    color: '#4a6b54',
+                                    color: '#17426C',
                                     fontFamily: "'Poppins', sans-serif",
                                     fontSize: { xs: '18px', md: '20px' },
                                 }}

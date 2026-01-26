@@ -13,7 +13,7 @@ const WhatWeDoSection = () => {
         }}>
             <Box
                 sx={{
-                    background: 'linear-gradient(135deg, #528362 0%, #3d634a 100%)',
+                    background: 'linear-gradient(135deg, #17426C 0%, #17426C 100%)',
                     borderTopRightRadius: { xs: '40px', md: '800px' },
                     borderBottomRightRadius: { xs: '40px', md: '800px' },
                     borderTopLeftRadius: '0px',
@@ -47,6 +47,7 @@ const WhatWeDoSection = () => {
                             fontWeight: 700,
                             fontFamily: "'Poppins', sans-serif",
                             // 🔥 Increased heading size slightly
+                            
                             fontSize: { xs: '30px', sm: '38px', md: '44px' },
                             mb: 2.5,
                             lineHeight: 1.1
@@ -70,8 +71,8 @@ const WhatWeDoSection = () => {
                     <Button
                         variant="contained"
                         sx={{
-                            backgroundColor: '#FFFFFF',
-                            color: '#528362',
+                            backgroundColor: '#AFD450',
+                            color: '#17426C',
                             borderRadius: '100px',
                             px: 5,
                             py: 1.4,

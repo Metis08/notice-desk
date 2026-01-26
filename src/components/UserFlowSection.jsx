@@ -34,7 +34,7 @@ const UserFlowSection = () => {
     return (
         <Box sx={{ 
             width: '100%', 
-            backgroundColor: '#4a6b54', 
+            backgroundColor: '#17426C', 
             pb: { xs: 4, md: 8 }, 
             position: 'relative',
             overflow: 'hidden' // Prevents whole-page horizontal scroll
@@ -53,7 +53,7 @@ const UserFlowSection = () => {
                 >
                     <Typography
                         sx={{
-                            color: '#528362',
+                            color: '#17426C',
                             fontWeight: 700,
                             fontFamily: "'Poppins', sans-serif",
                             fontSize: { xs: '22px', md: '42px' },
@@ -123,7 +123,7 @@ const UserFlowSection = () => {
                                 />
                                 <Typography
                                     sx={{
-                                        color: '#528362',
+                                        color: '#17426C ',
                                         fontWeight: 700,
                                         fontFamily: "'Poppins', sans-serif",
                                         fontSize: { xs: '11px', md: '13px' },

@@ -76,8 +76,8 @@ const CarouselSection = () => {
                     <Box
                         component="span"
                         sx={{
-                            backgroundColor: '#4a6b54',
-                            color: '#fff',
+                            backgroundColor: '#AFD450',
+                            color: '#17426C',
                             px: { xs: 2, md: 3 },
                             py: 0.5,
                             borderRadius: '100px',
@@ -191,7 +191,7 @@ const CarouselSection = () => {
                         inset: 0,
                         bottom: -2,
                         background:
-                            'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 60%, rgba(82, 131, 98, 1) 100%)',
+                            'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 40%, rgba(23, 66, 108, 1) 100%)',
                         zIndex: 20,
                         pointerEvents: 'none',
                     }}

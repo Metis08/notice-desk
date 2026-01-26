@@ -49,7 +49,7 @@ const MobileAppSection = () => {
             <Box
                 sx={{
                     position: 'relative',
-                    backgroundColor: '#528362',
+                    backgroundColor: '#17426C',
                     pt: { xs: 8, md: 10 },
                     pb: { xs: 20, md: 26 },
                     textAlign: 'center',
@@ -80,16 +80,16 @@ const MobileAppSection = () => {
                 >
                     <Box
                         sx={{
-                            backgroundColor: '#fff',
-                            color: 'rgba(82, 131, 98, 1)',
-                            px: { xs: 2, md: 3 },
+                            backgroundColor: '#AFD450',
+                            color: '#17426C',
+                            px: { xs: 9, md: 6 },
                             py: 0.5,
                             borderRadius: '100px',
                             fontWeight: 700,
-                            fontSize: { xs: 12, md: 14 },
+                            fontSize: { xs: 14, md: 24 },
                         }}
                     >
-                        Available
+                        Available On
                     </Box>
                     <Box sx={{ fontSize: { xs: 22, md: 26 } }}>▶</Box>
                     <Box sx={{ fontSize: { xs: 22, md: 26 } }}></Box>
@@ -133,7 +133,7 @@ const MobileAppSection = () => {
                         src={phoneImg}
                         sx={{
                             width: { sm: 180, md: 250, lg: 290 },
-                            filter: 'drop-shadow(0 20px 30px rgba(0,0,0,0.15))',
+                            filter: 'drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15))',
                             opacity: isVisible ? 1 : 0,
                             animation: isVisible ? `${slideUp} 0.8s ease-out 0.2s forwards` : 'none',
                         }}
