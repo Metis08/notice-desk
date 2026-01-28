@@ -7,6 +7,8 @@ import ComparisonSection from './components/ComparisonSection';
 import WhatWeDoSection from './components/WhatWeDoSection';
 import UserFlowSection from './components/UserFlowSection';
 import FeaturesSection from './components/FeaturesSection';
+import PricingSection from './components/PricingSection';
+import FAQSection from './components/FAQSection';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
       <WhatWeDoSection />
       <UserFlowSection />
       <FeaturesSection />
+      <PricingSection />
+      <FAQSection />
     </Box>
   );
 }
