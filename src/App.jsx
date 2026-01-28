@@ -6,6 +6,7 @@ import MobileAppSection from './components/MobileAppSection';
 import ComparisonSection from './components/ComparisonSection';
 import WhatWeDoSection from './components/WhatWeDoSection';
 import UserFlowSection from './components/UserFlowSection';
+import FeaturesSection from './components/FeaturesSection';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <ComparisonSection />
       <WhatWeDoSection />
       <UserFlowSection />
+      <FeaturesSection />
     </Box>
   );
 }
