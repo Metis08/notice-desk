@@ -1,44 +1,57 @@
-import React from 'react';
-import { Box, Typography, Container, Paper } from '@mui/material';
+import React, { useEffect, useRef, useState } from 'react';
+import { Box, Typography, Container, Paper, keyframes } from '@mui/material';
+
+const drawLine = keyframes`
+  from { width: 0; }
+  to { width: 100%; }
+`;
+
+const fadeIn = keyframes`
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+`;
 
 const UserFlowSection = () => {
+    const [isVisible, setIsVisible] = useState(false);
+    const sectionRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.unobserve(entry.target);
+                }
+            },
+            { threshold: 0.3 }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
     const steps = [
-        { label: 'LogIN', icon: '/assets/logo_arrow.png' },
-        { label: 'PAN', icon: '/assets/logo_window.png' },
-        { label: 'ADD', icon: '/assets/logo_split.png' },
-        { label: 'FETCH', icon: '/assets/logo_folder.png' },
-        { label: 'REPORT', icon: '/assets/logo_pdf.png' },
+        { label: 'login', icon: '/assets/logo_arrow.png' },
+        { label: 'create org', icon: '/assets/logo_window.png' },
+        { label: 'add path', icon: '/assets/logo_split.png' },
+        { label: 'fetch', icon: '/assets/logo_folder.png' },
+        { label: 'report', icon: '/assets/logo_pdf.png' },
     ];
 
-    const HandIcon = () => (
+    return (
         <Box
+            ref={sectionRef}
             sx={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transform: 'rotate(-10deg)',
-                opacity: 0.7,
-                flexShrink: 0,
-                mx: { xs: 1.5, md: 0.5 }
+                width: '100%',
+                backgroundColor: '#F5F7FA',
+                pb: { xs: 8, md: 12 },
+                position: 'relative',
+                overflow: 'hidden'
             }}
         >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0" />
-                <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0" />
-                <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0" />
-                <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
-            </svg>
-        </Box>
-    );
-
-    return (
-        <Box sx={{
-            width: '100%',
-            backgroundColor: '#F5F7FA', // Clean Neutral Background
-            pb: { xs: 4, md: 10 },
-            position: 'relative',
-            overflow: 'hidden'
-        }}>
             {/* Header */}
             <Box sx={{ display: 'flex', justifyContent: 'center', mb: { xs: 6, md: 10 } }}>
                 <Box
@@ -67,7 +80,7 @@ const UserFlowSection = () => {
                 </Box>
             </Box>
 
-            {/* Cards Grid - Responsive Wrap */}
+            {/* Cards Grid */}
             <Container maxWidth="lg" sx={{ px: { xs: 2, md: 4 } }}>
                 <Box
                     sx={{
@@ -75,31 +88,34 @@ const UserFlowSection = () => {
                         flexWrap: 'nowrap',
                         justifyContent: 'space-between',
                         alignItems: 'center',
-                        pb: { xs: 4, md: 0 },
                         width: '100%',
+                        position: 'relative',
                     }}
                 >
                     {steps.map((step, index) => (
                         <React.Fragment key={index}>
+                            {/* Card */}
                             <Paper
                                 elevation={0}
                                 sx={{
-                                    width: { xs: '65px', sm: '110px', md: '170px' },
-                                    height: { xs: '65px', sm: '110px', md: '170px' },
+                                    width: { xs: '60px', sm: '100px', md: '160px' },
+                                    height: { xs: '60px', sm: '100px', md: '160px' },
                                     flexShrink: 0,
                                     display: 'flex',
                                     flexDirection: 'column',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    borderRadius: { xs: '16px', md: '28px' },
+                                    borderRadius: { xs: '12px', md: '24px' },
                                     backgroundColor: '#AFD450',
-                                    transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                                     border: '1px solid rgba(14, 42, 59, 0.05)',
-                                    boxShadow: '0 15px 45px rgba(14, 42, 59, 0.05)',
+                                    boxShadow: '0 10px 30px rgba(14, 42, 59, 0.05)',
+                                    opacity: isVisible ? 1 : 0,
+                                    transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+                                    transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.4}s`,
+                                    zIndex: 2,
                                     '&:hover': {
                                         transform: 'translateY(-10px) scale(1.05)',
                                         boxShadow: '0 25px 60px rgba(14, 42, 59, 0.1)',
-                                        borderColor: '#A6C85A',
                                     }
                                 }}
                             >
@@ -107,54 +123,72 @@ const UserFlowSection = () => {
                                     component="img"
                                     src={step.icon}
                                     sx={{
-                                        width: { xs: 18, sm: 28, md: 40 },
-                                        height: { xs: 18, sm: 28, md: 40 },
-                                        mb: { xs: 0.5, md: 2 },
+                                        width: { xs: 18, sm: 24, md: 36 },
+                                        height: { xs: 18, sm: 24, md: 36 },
+                                        mb: { xs: 0.5, md: 1.5 },
                                         objectFit: 'contain',
-                                        filter: 'grayscale(1) brightness(0.15)', // Elite iconography
+                                        filter: 'grayscale(1) brightness(0.2)',
                                     }}
                                 />
                                 <Typography
                                     sx={{
-                                        color: '#3a3a3aff',
+                                        color: '#1a1a1aff',
                                         fontWeight: 700,
                                         fontFamily: "'Poppins', sans-serif",
-                                        fontSize: { xs: '9px', sm: '11px', md: '14px' },
-                                        letterSpacing: '0.5px',
-                                        textAlign: 'center'
+                                        fontSize: { xs: '8px', sm: '10px', md: '13px' },
+                                        textAlign: 'center',
+                                        lineHeight: 1.2,
+                                        px: 0.5
                                     }}
                                 >
                                     {step.label}
                                 </Typography>
                             </Paper>
 
-                            {/* Desktop Arrow */}
+                            {/* Sequential Connector Line and Arrow */}
                             {index < steps.length - 1 && (
-                                <Box sx={{ display: { xs: 'none', md: 'flex' }, mx: 1 }}>
+                                <Box
+                                    sx={{
+                                        flex: 1,
+                                        height: '2px',
+                                        position: 'relative',
+                                        mx: { xs: 0.5, md: 1 },
+                                        display: 'flex',
+                                        alignItems: 'center'
+                                    }}
+                                >
+                                    {/* Line */}
                                     <Box
                                         sx={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            transform: 'rotate(-5deg)',
-                                            opacity: 0.8,
-                                            flexShrink: 0,
+                                            height: '2.5px',
+                                            backgroundColor: '#042E4B',
+                                            width: isVisible ? '100%' : '0',
+                                            transition: `width 0.4s ease-out ${(index * 0.4) + 0.3}s`,
+                                            position: 'relative',
+                                            '&::after': {
+                                                content: '""',
+                                                position: 'absolute',
+                                                right: 0,
+                                                top: '50%',
+                                                transform: 'translateY(-50%)',
+                                                width: { xs: '6px', md: '10px' },
+                                                height: { xs: '6px', md: '10px' },
+                                                borderTop: '2.5px solid #042E4B',
+                                                borderRight: '2.5px solid #042E4B',
+                                                transformOrigin: 'center',
+                                                rotate: '45deg',
+                                                opacity: isVisible ? 1 : 0,
+                                                transition: `opacity 0.2s ease-out ${(index * 0.4) + 0.6}s`,
+                                            }
                                         }}
-                                    >
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#042E4B" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                            <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0" />
-                                            <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0" />
-                                            <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0" />
-                                            <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
-                                        </svg>
-                                    </Box>
+                                    />
                                 </Box>
                             )}
                         </React.Fragment>
                     ))}
                 </Box>
             </Container>
-        </Box >
+        </Box>
     );
 };
 
