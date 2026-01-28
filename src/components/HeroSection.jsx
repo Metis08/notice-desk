@@ -103,7 +103,7 @@ const HeroSection = () => {
                 </Box>
 
                 {/* Monitor Section */}
-                <Box sx={{ width: '100%', flex: 1, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', position: 'relative', mb: { xs: -4, md: -6, lg: -8 }, minHeight: 0, zIndex: 5 }}>
+                <Box sx={{ width: '100%', flex: 1, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', position: 'relative', mb: { xs: 0, md: -6, lg: -8 }, pb: { xs: 6, md: 0 }, minHeight: 0, zIndex: 5 }}>
                     {/* Atmospheric Navy Glow Effect (Main Center) */}
                     <Box
                         sx={{
@@ -139,14 +139,14 @@ const HeroSection = () => {
                         alt="Dashboard Mockup"
                         sx={{
                             width: 'auto',
-                            maxWidth: { xs: '100%', md: '100%', lg: '1500px' },
+                            maxWidth: { xs: '95%', md: '100%', lg: '1500px' },
                             height: 'auto',
-                            maxHeight: { xs: '60vh', md: '75vh', lg: '85vh' },
+                            maxHeight: { xs: '65vh', md: '75vh', lg: '85vh' },
                             objectFit: 'contain',
                             zIndex: 1,
                             display: 'block',
                             transform: {
-                                xs: 'translateY(15px)',
+                                xs: 'none',
                                 md: 'translateY(40px) scale(1.1)',
                                 lg: 'translateY(60px) scale(1.15)'
                             },

@@ -89,13 +89,13 @@ const CarouselSection = () => {
                     </Box>
                 </Typography>
 
-                <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3, opacity: 0.6 }}>
+                <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
                     <Box
                         component="img"
                         src={browserLogos}
                         alt="Browser Support"
                         sx={{
-                            height: { xs: '35px', md: '50px' },
+                            height: { xs: '45px', md: '65px' },
                             width: 'auto',
                             objectFit: 'contain',
                         }}
