@@ -9,11 +9,12 @@ const WhatWeDoSection = () => {
             width: '100%',
             display: 'flex',
             justifyContent: 'flex-start',
-            overflow: 'visible'
+            overflow: 'visible',
+            backgroundColor: '#F5F7FA'
         }}>
             <Box
                 sx={{
-                    background: 'linear-gradient(135deg, #17426C 0%, #17426C 100%)',
+                    background: '#0E2A3B', // Main Notice Desk Panel: Deep Navy
                     borderTopRightRadius: { xs: '40px', md: '800px' },
                     borderBottomRightRadius: { xs: '40px', md: '800px' },
                     borderTopLeftRadius: '0px',
@@ -26,6 +27,7 @@ const WhatWeDoSection = () => {
                     width: { xs: '95%', sm: '90%', md: '75%' },
                     minHeight: { xs: 'auto', md: '480px' },
                     mt: { xs: 6, md: 10 },
+                    boxShadow: '20px 20px 60px rgba(14, 42, 59, 0.15)',
                 }}
             >
                 {/* Left Content */}
@@ -36,7 +38,7 @@ const WhatWeDoSection = () => {
                         textAlign: 'left',
                         pl: { xs: 3, sm: 6, md: 12 },
                         pr: { xs: 3, md: 15 },
-                        color: '#FFFFFF',
+                        color: '#F8F9FA', // Off-white text inside dark panel
                         py: { xs: 2, md: 0 }
                     }}
                 >
@@ -44,10 +46,10 @@ const WhatWeDoSection = () => {
                         sx={{
                             fontWeight: 700,
                             fontFamily: "'Poppins', sans-serif",
-                            // 🔥 Increased heading size slightly
                             fontSize: { xs: '30px', sm: '38px', md: '44px' },
                             mb: 2.5,
-                            lineHeight: 1.2
+                            lineHeight: 1.2,
+                            color: '#F8F9FA'
                         }}
                     >
                         What we do??
@@ -59,7 +61,7 @@ const WhatWeDoSection = () => {
                             maxWidth: '500px',
                             mb: 4,
                             lineHeight: 1.7,
-                            opacity: 0.95,
+                            color: 'rgba(245, 247, 250, 0.8)',
                         }}
                     >
                         Contrast the typical complexity of tax filing with the streamlined, supportive process offered by WrapTax. Contrast the typical complexity of tax filing with the streamlined, supportive process offered by WrapTax. Contrast the typical complexity of tax filing with streamlined, supportive process offered by WrapTax. Contrast the typical complexity of tax filing with the streamlined, supportive process offered by WrapTax.
@@ -67,16 +69,20 @@ const WhatWeDoSection = () => {
                     <Button
                         variant="contained"
                         sx={{
-                            backgroundColor: '#AFD450',
-                            color: '#17426C',
+                            backgroundColor: '#A6C85A', // Soft Lime Green
+                            color: '#000',
                             borderRadius: '100px',
                             px: { xs: 4, md: 5 },
                             py: 1.4,
-                            fontWeight: 600,
+                            fontWeight: 700,
                             textTransform: 'none',
                             fontFamily: "'Poppins', sans-serif",
                             fontSize: { xs: '14px', md: '15px' },
-                            '&:hover': { backgroundColor: '#f0f0f0' },
+                            '&:hover': {
+                                backgroundColor: '#92B14C', // Darker lime for hover
+                                color: '#fff',
+                                boxShadow: '0 8px 24px rgba(166, 200, 90, 0.4)'
+                            },
                         }}
                     >
                         Read More
@@ -101,7 +107,7 @@ const WhatWeDoSection = () => {
                         sx={{
                             width: { md: '380px' },
                             height: 'auto',
-                            filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.35))',
+                            filter: 'drop-shadow(0 40px 60px rgba(14, 42, 59, 0.3))',
                         }}
                     />
                 </Box>

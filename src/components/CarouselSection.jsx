@@ -46,8 +46,8 @@ const CarouselSection = () => {
         <Box
             sx={{
                 pt: { xs: 6, md: 10 },
-                pb: 0,
-                backgroundColor: '#fff',
+                pb: 10,
+                backgroundColor: '#F5F7FA',
                 overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
@@ -64,7 +64,7 @@ const CarouselSection = () => {
                         fontFamily: "'Poppins', sans-serif",
                         fontSize: { xs: '24px', sm: '32px', md: '44px', lg: '52px' },
                         fontWeight: 700,
-                        color: '#000',
+                        color: '#0E2A3B',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -77,8 +77,9 @@ const CarouselSection = () => {
                         component="span"
                         sx={{
                             backgroundColor: '#AFD450',
-                            color: '#17426C',
-                            px: { xs: 2, md: 3 },
+                            border: '1px solid rgba(166, 200, 90, 0.4)',
+                            color: '#042E4B',
+                            px: { xs: 2.5, md: 3.5 },
                             py: 0.5,
                             borderRadius: '100px',
                             fontWeight: 700,
@@ -88,7 +89,7 @@ const CarouselSection = () => {
                     </Box>
                 </Typography>
 
-                <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
+                <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3, opacity: 0.6 }}>
                     <Box
                         component="img"
                         src={browserLogos}
@@ -96,7 +97,7 @@ const CarouselSection = () => {
                         sx={{
                             height: { xs: '35px', md: '50px' },
                             width: 'auto',
-                            objectFit: 'contain'
+                            objectFit: 'contain',
                         }}
                     />
                 </Box>
@@ -162,10 +163,9 @@ const CarouselSection = () => {
                                 zIndex,
                                 opacity,
                                 transform: `translateX(${x}px) scale(${scale})`,
-                                borderRadius: { xs: '8px', md: '12px' },
+                                borderRadius: { xs: '12px', md: '20px' },
                                 overflow: 'hidden',
-                                // 🚫 Shadow/Box removed as requested
-                                boxShadow: 'none',
+
                             }}
                         >
                             <Box
@@ -175,7 +175,6 @@ const CarouselSection = () => {
                                 sx={{
                                     width: '100%',
                                     display: 'block',
-                                    // Removed any implicit border/outline
                                     border: 'none',
                                     outline: 'none',
                                 }}
@@ -184,14 +183,14 @@ const CarouselSection = () => {
                     );
                 })}
 
-                {/* Gradient Overlay */}
+                {/* Gradient Overlay Replaced with subtle fade */}
                 <Box
                     sx={{
                         position: 'absolute',
                         inset: 0,
                         bottom: -2,
                         background:
-                            'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 40%, rgba(23, 66, 108, 1) 100%)',
+                            'linear-gradient(180deg, rgba(245, 247, 250, 0) 0%, rgba(245, 247, 250, 0) 60%, rgba(245, 247, 250, 1) 100%)',
                         zIndex: 20,
                         pointerEvents: 'none',
                     }}

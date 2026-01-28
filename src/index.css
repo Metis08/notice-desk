@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light;
-  color: #213547;
-  background-color: #ffffff;
+  color: #0E2A3B;
+  background-color: #F5F7FA;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,7 +18,7 @@ body {
   padding: 0;
   width: 100%;
   min-height: 100vh;
-  background-color: #fff;
+  background-color: #F5F7FA;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }

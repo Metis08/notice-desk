@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Box, Typography, useTheme, useMediaQuery } from '@mui/material';
 import { keyframes } from '@mui/system';
 import phoneImg from '../assets/phone_mockup.png';
+import appStoreIcons from '../assets/app_store_icons.png';
 
 // Define the "Slide Up" entrance
 const slideUp = keyframes`
@@ -43,17 +44,17 @@ const MobileAppSection = () => {
     return (
         <Box
             ref={sectionRef}
-            sx={{ width: '100%', overflow: 'hidden', backgroundColor: '#fff' }}
+            sx={{ width: '100%', overflow: 'hidden', backgroundColor: '#F5F7FA' }}
         >
-            {/* GREEN SECTION */}
+            {/* NAVY SECTION WITH CURVE */}
             <Box
                 sx={{
                     position: 'relative',
-                    backgroundColor: '#17426C',
+                    backgroundColor: '#0E2A3B', // Key section: Deep Navy
                     pt: { xs: 8, md: 10 },
                     pb: { xs: 20, md: 26 },
                     textAlign: 'center',
-                    color: '#fff',
+                    color: '#F8F9FA', // Off-white for dark background
                 }}
             >
                 <Box sx={{ maxWidth: '1100px', width: '90%', mx: 'auto', mb: 2 }}>
@@ -63,9 +64,10 @@ const MobileAppSection = () => {
                             fontWeight: 700,
                             fontSize: { xs: '26px', sm: '36px', md: '44px', lg: '52px' },
                             lineHeight: 1.2,
+                            color: '#F8F9FA',
                         }}
                     >
-                        Complynce on the go.
+                        Compliance on the go.
                     </Typography>
                 </Box>
 
@@ -81,18 +83,28 @@ const MobileAppSection = () => {
                     <Box
                         sx={{
                             backgroundColor: '#AFD450',
-                            color: '#17426C',
-                            px: { xs: 9, md: 6 },
+                            border: '1px solid rgba(166, 200, 90, 0.4)',
+                            color: '#042E4B', // Soft Lime accent
+                            px: { xs: 9, md: 4 },
                             py: 0.5,
                             borderRadius: '100px',
-                            fontWeight: 700,
-                            fontSize: { xs: 14, md: 24 },
+                            fontWeight: 600,
+                            fontSize: { xs: 14, md: 20 },
                         }}
                     >
                         Available On
                     </Box>
-                    <Box sx={{ fontSize: { xs: 22, md: 26 } }}>▶</Box>
-                    <Box sx={{ fontSize: { xs: 22, md: 26 } }}></Box>
+                    <Box
+                        component="img"
+                        src={appStoreIcons}
+                        sx={{
+                            height: { xs: 24, md: 32 },
+                            width: 'auto',
+                            objectFit: 'contain',
+                            display: 'block'
+                        }}
+                        alt="Play Store and App Store"
+                    />
                 </Box>
 
                 <Box
@@ -107,7 +119,7 @@ const MobileAppSection = () => {
                     }}
                 >
                     <svg viewBox="0 0 1440 180" preserveAspectRatio="none" width="100%" height="100%">
-                        <path d="M0,0 H360 C520,0 620,120 720,120 C820,120 920,0 1080,0 H1440 V180 H0 Z" fill="#ffffff" />
+                        <path d="M0,0 H360 C520,0 620,120 720,120 C820,120 920,0 1080,0 H1440 V180 H0 Z" fill="#F5F7FA" />
                     </svg>
                 </Box>
             </Box>
@@ -133,7 +145,7 @@ const MobileAppSection = () => {
                         src={phoneImg}
                         sx={{
                             width: { sm: 180, md: 250, lg: 290 },
-                            filter: 'drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15))',
+                            filter: 'drop-shadow(0 30px 40px rgba(14, 42, 59, 0.2))',
                             opacity: isVisible ? 1 : 0,
                             animation: isVisible ? `${slideUp} 0.8s ease-out 0.2s forwards` : 'none',
                         }}
@@ -146,11 +158,11 @@ const MobileAppSection = () => {
                     src={phoneImg}
                     sx={{
                         width: { xs: 200, sm: 240, md: 300, lg: 330 },
-                        filter: 'drop-shadow(0 25px 40px rgba(0,0,0,0.25))',
+                        filter: 'drop-shadow(0 40px 60px rgba(14, 42, 59, 0.3))',
                         zIndex: 3,
                         opacity: isVisible ? 1 : 0,
                         animation: isVisible ? `${slideUp} 0.8s ease-out forwards` : 'none',
-                        mb: { xs: -6, md: 0 } // Pull up slightly on mobile if needed, but safe
+                        mb: { xs: -6, md: 0 }
                     }}
                 />
 
@@ -161,7 +173,7 @@ const MobileAppSection = () => {
                         src={phoneImg}
                         sx={{
                             width: { sm: 180, md: 250, lg: 290 },
-                            filter: 'drop-shadow(0 20px 30px rgba(0,0,0,0.15))',
+                            filter: 'drop-shadow(0 30px 40px rgba(14, 42, 59, 0.2))',
                             opacity: isVisible ? 1 : 0,
                             animation: isVisible ? `${slideUp} 0.8s ease-out 0.4s forwards` : 'none',
                         }}
