@@ -36,7 +36,7 @@ const HeroSection = () => {
                 sx={{
                     width: '100%',
                     minHeight: { xs: '85vh', md: '95vh' },
-                    backgroundColor: '#ffffffff', // Main Notice Desk Panel: Deep Navy
+                    backgroundColor: '#0E2A3B', // Main Notice Desk Panel: Deep Navy
                     borderRadius: { xs: '24px', md: '44px' },
                     border: '1px solid rgba(255, 255, 255, 0.05)',
                     display: 'flex',
@@ -55,7 +55,7 @@ const HeroSection = () => {
                         sx={{
                             fontSize: { xs: '1.8rem', sm: '2.5rem', md: '3.4rem', lg: '4rem' },
                             fontWeight: 600,
-                            color: '#202020ff', // Off-white text inside dark panel
+                            color: '#ffffffff', // Off-white text inside dark panel
                             lineHeight: 1.3,
                             mb: { xs: 2, md: 3 }
                         }}
@@ -95,7 +95,7 @@ const HeroSection = () => {
                         </Box>
                     </Typography>
 
-                    <Typography sx={{ fontSize: { xs: '1rem', md: '1.25rem' }, color: 'rgba(32, 32, 32, 0.7)', maxWidth: '900px', mx: 'auto', lineHeight: 1.5, mt: 2, px: 1 }}>
+                    <Typography sx={{ fontSize: { xs: '1rem', md: '1.25rem' }, color: 'rgba(241, 241, 241, 0.7)', maxWidth: '900px', mx: 'auto', lineHeight: 1.5, mt: 4, px: 1 }}>
                         We are India's First Platform to use Blockchain Technology for Audit/
                         <br style={{ display: { xs: 'none', md: 'block' } }} />
                         Balance Confirmations.

@@ -9,6 +9,8 @@ import UserFlowSection from './components/UserFlowSection';
 import FeaturesSection from './components/FeaturesSection';
 import PricingSection from './components/PricingSection';
 import FAQSection from './components/FAQSection';
+import ContactSection from './components/ContactSection';
+
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
       <FeaturesSection />
       <PricingSection />
       <FAQSection />
+      <ContactSection />
+
     </Box>
   );
 }

@@ -113,7 +113,7 @@ const FeaturesSection = () => {
                                 {/* Infographic Number with Slit/Sunk Effect */}
                                 <Box
                                     sx={{
-                                        color: '#AFD450',
+                                        color: '#042E4B',
                                         position: 'relative',
                                         height: { xs: '80px', md: '130px' },
                                         overflow: 'hidden',
@@ -126,10 +126,11 @@ const FeaturesSection = () => {
                                 >
                                     <Typography
                                         sx={{
+                                            color: '#042E4B',
                                             fontSize: { xs: '100px', md: '180px' },
                                             fontWeight: 900,
-                                            color: feature.color,
-                                            lineHeight: 0.75, // Keeps crop at bottom
+                                            
+                                            lineHeight: 0.95, // Keeps crop at bottom
                                             letterSpacing: '-5px',
                                             userSelect: 'none',
                                             opacity: 0.9
@@ -181,6 +182,7 @@ const FeaturesSection = () => {
                                 <Box
                                     sx={{
                                         color: '#0E2A3B',
+                                        
                                         mt: 'auto',
                                         p: 2,
                                         borderRadius: '50%',

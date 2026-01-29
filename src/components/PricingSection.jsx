@@ -198,6 +198,7 @@ const PricingSection = () => {
                                                 boxShadow: '0 4px 14px rgba(0,0,0,0.15)',
                                                 '&:hover': {
                                                     bgcolor: '#000000',
+                                                    color: 'white',
                                                     boxShadow: '0 6px 20px rgba(0,0,0,0.25)'
                                                 }
                                             }}
