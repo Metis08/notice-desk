@@ -1,9 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import { motion, useInView, useAnimation } from "framer-motion";
+import { motion, useInView, useAnimation, useReducedMotion } from "framer-motion";
 
 export const Reveal = ({ children, width = "100%" }) => {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, amount: 0.2 });
+    // amount: 0.1 ensures it triggers earlier on mobile
+    const isInView = useInView(ref, { once: true, amount: 0.1 });
+    const shouldReduceMotion = useReducedMotion();
 
     const mainControls = useAnimation();
 
@@ -14,15 +16,15 @@ export const Reveal = ({ children, width = "100%" }) => {
     }, [isInView, mainControls]);
 
     return (
-        <div ref={ref} style={{ position: "relative", width, overflow: "hidden" }}>
+        <div ref={ref} style={{ position: "relative", width }}>
             <motion.div
                 variants={{
-                    hidden: { opacity: 0, y: 75 },
+                    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 25 },
                     visible: { opacity: 1, y: 0 },
                 }}
                 initial="hidden"
                 animate={mainControls}
-                transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
+                transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             >
                 {children}
             </motion.div>
