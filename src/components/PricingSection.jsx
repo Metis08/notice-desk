@@ -79,27 +79,29 @@ const PricingSection = () => {
                         </Typography>
                     </Box>
 
-                    {/* Pricing Cards - Single row on all screens, no scroll */}
+                    {/* Pricing Cards - Responsive layout */}
                     <Box
                         sx={{
                             display: 'flex',
-                            gap: { xs: 1.5, md: 4 },
+                            flexDirection: { xs: 'column', md: 'row' },
+                            gap: { xs: 3, md: 4 },
                             justifyContent: 'center',
                             alignItems: 'stretch',
                             width: '100%',
-                            px: { xs: 0, md: 0 }
                         }}
                     >
+
                         {pricingPlans.map((plan, index) => (
                             <Box
                                 key={index}
                                 sx={{
-                                    flex: 1,
-                                    minWidth: 0, // Allows shrinking below content size
-                                    maxWidth: { md: '380px' },
+                                    flex: { xs: '1 1 auto', md: 1 },
+                                    width: '100%',
+                                    maxWidth: { xs: '100%', md: '380px' },
                                     display: 'flex'
                                 }}
                             >
+
                                 <Paper
                                     elevation={0}
                                     sx={{
