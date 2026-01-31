@@ -19,7 +19,10 @@ import {
     Instagram,
     Twitter,
     YouTube,
-    ArrowForward
+    ArrowForward,
+    Room,         // Location Icon
+    Email,        // Email/Contact Icon
+    AccessTime    // Time Icon
 } from '@mui/icons-material';
 
 const ContactSection = () => {
@@ -47,9 +50,6 @@ const ContactSection = () => {
             }}
 
         >
-            {/* Map Pattern Overlay */}
-
-
             <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
                 <Grid container spacing={4} alignItems="center">
                     {/* Left Side: Contact Info */}
@@ -61,8 +61,8 @@ const ContactSection = () => {
                                     color: 'white',
                                     fontSize: { xs: '3rem', md: '5rem' },
                                     fontWeight: 600,
-                                    mb: 4, // Reduced margin to move content up
-                                    mt: { md: -4 }, // Move slightly up
+                                    mb: 4, 
+                                    mt: { md: -4 }, 
                                     lineHeight: 1.1,
                                 }}
                             >
@@ -72,28 +72,55 @@ const ContactSection = () => {
 
                             <Grid container spacing={4}>
                                 <Grid item xs={12} sm={6}>
-                                    <Typography
-                                        variant="overline"
-                                        sx={{ color: 'rgba(255,255,255,0.5)', letterSpacing: 2, mb: 2, display: 'block' }}
-                                    >
-                                        OUR ADDRESS
-                                    </Typography>
+                                    {/* Address Header with Icon */}
+                                    <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 2 }}>
+                                        <Room sx={{ color: '#A6C85A', fontSize: '1.2rem' }} />
+                                        <Typography
+                                            variant="overline"
+                                            sx={{ color: 'rgba(255,255,255,0.5)', letterSpacing: 2, display: 'block' }}
+                                        >
+                                            OUR ADDRESS
+                                        </Typography>
+                                    </Stack>
                                     <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.8 }}>
-                                        123456 Moscow<br />
-                                        Lane Dyuzheva<br />
-                                        building 47 office 202
+                                        Sector 105, Rajendra Park<br />
+                                        Gurgaon 122001,<br />
+                                        Haryana, India
                                     </Typography>
                                 </Grid>
+                                
                                 <Grid item xs={12} sm={6}>
-                                    <Typography
-                                        variant="overline"
-                                        sx={{ color: 'rgba(255,255,255,0.5)', letterSpacing: 2, mb: 2, display: 'block' }}
-                                    >
-                                        OUR CONTACTS
+                                    {/* Contacts Header with Icon */}
+                                    <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 2 }}>
+                                        <Email sx={{ color: '#A6C85A', fontSize: '1.2rem' }} />
+                                        <Typography
+                                            variant="overline"
+                                            sx={{ color: 'rgba(255,255,255,0.5)', letterSpacing: 2, display: 'block' }}
+                                        >
+                                            OUR CONTACTS
+                                        </Typography>
+                                    </Stack>
+                                    <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.8, mb: 3 }}>
+                                        support@wraptax.com<br />
+                                        +91-9999 260234
                                     </Typography>
-                                    <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.8 }}>
-                                        hello@name.com<br />
-                                        +7 900 800 70 60
+
+                                    {/* Timing Section with Icon */}
+                                    <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
+                                        <AccessTime sx={{ color: '#A6C85A', fontSize: '1rem' }} />
+                                        <Typography
+                                            variant="overline"
+                                            sx={{ color: 'rgba(255,255,255,0.5)', letterSpacing: 2 }}
+                                        >
+                                            Timing
+                                        </Typography>
+                                    </Stack>
+                                    <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.8 }}>
+                                        Mon - Fri : 10:00 AM - 5:00 PM
+                                        <br />
+                                        Sat : 10:00 AM - 2:00 PM
+                                        <br />
+                                        Sunday | Public Holiday : Closed
                                     </Typography>
                                 </Grid>
                             </Grid>
@@ -136,14 +163,7 @@ const ContactSection = () => {
                                 boxShadow: 'none',
                                 overflow: 'hidden',
                             }}
-
-
-
-
-
                         >
-
-
                             <form>
                                 <Stack spacing={4}>
                                     <TextField
@@ -231,7 +251,6 @@ const ContactSection = () => {
                                             Send Message
                                         </Button>
                                     </Box>
-
                                 </Stack>
                             </form>
                         </Paper>

@@ -89,18 +89,7 @@ const CarouselSection = () => {
                     </Box>
                 </Typography>
 
-                <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
-                    <Box
-                        component="img"
-                        src={browserLogos}
-                        alt="Browser Support"
-                        sx={{
-                            height: { xs: '45px', md: '65px' },
-                            width: 'auto',
-                            objectFit: 'contain',
-                        }}
-                    />
-                </Box>
+                
             </Box>
 
             {/* Carousel Container */}
