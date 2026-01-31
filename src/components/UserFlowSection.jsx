@@ -36,7 +36,7 @@ const UserFlowSection = () => {
     const steps = [
         { label: 'login', icon: '/assets/logo_arrow.png' },
         { label: 'create  organisation', icon: '/assets/logo_window.png' },
-        { label: 'add path', icon: '/assets/logo_split.png' },
+        { label: 'add pan', icon: '/assets/logo_split.png' },
         { label: 'fetch', icon: '/assets/logo_folder.png' },
         { label: 'report', icon: '/assets/logo_pdf.png' },
     ];
